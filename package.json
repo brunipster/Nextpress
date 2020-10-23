@@ -1,0 +1,50 @@
+{
+  "name": "bolerplatenextpress",
+  "version": "1.0.0",
+  "description": "Boilerplate Nextjs + Express project",
+  "main": "server.js",
+  "scripts": {
+    "local": "node server.js",
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "author": "Bruno Reyes",
+  "license": "MIT",
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "axios": "^0.20.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "lowdb": "^1.0.0",
+    "module-alias": "^2.2.2",
+    "morgan": "^1.10.0",
+    "next": "^9.5.5",
+    "node-sass": "^4.14.1",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "sass": "^1.27.0",
+    "shortid": "^2.2.16"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.5",
+    "cross-env": "^7.0.2",
+    "nodemon": "^2.0.2"
+  },
+  "_moduleAliases": {
+    "@Server": "./server/",
+    "@Controllers": "./server/controllers/",
+    "@Models": "./server/models/",
+    "@Routes": "./routes",
+    "@Pages": "./pages/",
+    "@Components": "./components",
+    "@Utils": "./utils/"
+  }
+}
