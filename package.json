@@ -12,6 +12,7 @@
   "author": "Bruno Reyes",
   "license": "MIT",
   "dependencies": {
+    "@svgr/webpack": "^5.4.0",
     "@zeit/next-sass": "^1.0.1",
     "axios": "^0.20.0",
     "bcryptjs": "^2.4.3",

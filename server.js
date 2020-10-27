@@ -13,9 +13,9 @@ const adapter = new FileSync('db.json')
 const db = low(adapter)
 // const verifyJWT = require('@Src/middlewares/verifyJWT')
 // const isLocal = process.env.CUSTOM_NODE_ENV === "local";
-// const dev = process.env.NODE_ENV !== 'production'
+const dev = process.env.NODE_ENV !== 'production'
 const nextApp = next({
-  dev: false
+  dev: dev
 });
 
 const apiRoutes = require('@Routes/api.routes')
@@ -43,15 +43,15 @@ nextApp.prepare().then(() => {
     app.use('/api', router)
   
   
-    // // Register web routes
-    // for (let route of routes) {
-    //   app.get(route.slug, function(req, res){
-    //     console.log(route.view)
-    //       const parsedUrl = parse(req.url, true);
-    //       const { query } = parsedUrl;
-    //       nextApp.render(req,res,route.view, query);
-    //   })
-    // }
+    // Register web routes
+    for (let route of routes) {
+      app.get(route.slug, function(req, res){
+          const parsedUrl = parse(req.url, true);
+          const { query } = parsedUrl;
+          console.log(route.view)
+          nextApp.render(req,res,route.view, query);
+      })
+    }
     
     app.listen(port, () => {
       console.log(`> Ready on http://localhost:${port}`);
