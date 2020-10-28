@@ -44,14 +44,15 @@ nextApp.prepare().then(() => {
   
   
     // Register web routes
-    for (let route of routes) {
+    Object.keys(routes).forEach((key, index) => {
+      let route = routes[key] 
       app.get(route.slug, function(req, res){
           const parsedUrl = parse(req.url, true);
           const { query } = parsedUrl;
           console.log(route.view)
           nextApp.render(req,res,route.view, query);
       })
-    }
+    })
     
     app.listen(port, () => {
       console.log(`> Ready on http://localhost:${port}`);

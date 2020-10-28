@@ -14,7 +14,7 @@ module.exports = withSass({
         use: ['@svgr/webpack'],
       });
       config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//))
-      config.resolve.alias["@Service"]= path.join(__dirname, "services")
+      config.resolve.alias["@Services"]= path.join(__dirname, "pages/services")
       config.resolve.alias["@Views"]= path.join(__dirname, "pages")
       config.resolve.alias["@Styles"]= path.join(__dirname, "pages/styles")
       config.resolve.alias["@Pages"]= path.join(__dirname, "pages/pages")
