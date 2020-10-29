@@ -10,9 +10,8 @@ export default function HomePage(props){
     const [tasks,setTasks] = useState([]);
 
     useEffect(()=>{
-        oTodoServices.getAllTask().then((result)=>{
-            console.log("result",result);
-            // setTasks(result.data)
+        oTodoServices.getAllTask().then(({data})=>{
+            setTasks(data.data)
         })
     },[])
 
@@ -21,18 +20,24 @@ export default function HomePage(props){
     return (
         <div className="p_home">
             <div className="p_home__form_section">
-                <label className="">Descripción</label>
-                <input type="text"/>
-                <button type="button"><AddButtonIcon width="20px"/></button>
+                <div className="p_home__input_description">
+                    <label className="">Descripción</label>
+                    <input type="text"/>
+                </div>
+                <button type="button">
+                    <AddButtonIcon width="20px"/>
+                </button>
             </div>
             <div className="p_home__list_section">
-                {tasks.map((task,i)=>
+                <ul>
+                    {tasks.map((task,i)=>
                     <li key={i}>
-                    <div>
-                        {task.name}
-                    </div>
-                </li>
-                )}
+                        <div>
+                            {task.name}
+                        </div>
+                        <div>{task.state}</div>
+                    </li>)}
+                </ul>
             </div>
         </div>
     )

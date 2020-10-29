@@ -15,12 +15,11 @@ const db = low(adapter)
 // const isLocal = process.env.CUSTOM_NODE_ENV === "local";
 const dev = process.env.NODE_ENV !== 'production'
 const nextApp = next({
-  dev: dev
+  dev: true
 });
 
 const apiRoutes = require('@Routes/api.routes')
 const routes = require('@Routes/routes')
-
 
 const port = process.env.PORT || 80
 
@@ -28,7 +27,7 @@ nextApp.prepare().then(() => {
     const app = express()
     db.defaults({ task: []}).write()
     app.use(bodyParser.json())
-    // app.use(db)
+
     app.use("/_next/static", express.static(".next/static"));
     app.use("/static",express.static('./static'));
     

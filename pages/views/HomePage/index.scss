@@ -1,4 +1,14 @@
 .p_home{
-    display: flex;
+    display: grid;
 }
 
+.p_home__form_section{
+    grid-column: span 2;
+}
+
+.p_home__input_description{
+    
+}
+.p_home__list_section{
+    grid-column: span 4;
+}
