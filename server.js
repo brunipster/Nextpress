@@ -25,7 +25,7 @@ const port = process.env.PORT || 80
 
 nextApp.prepare().then(() => {
     const app = express()
-    db.defaults({ task: []}).write()
+    db.defaults({ task: [], user: []}).write()
     app.use(bodyParser.json())
 
     app.use("/_next/static", express.static(".next/static"));
@@ -35,8 +35,8 @@ nextApp.prepare().then(() => {
     // Register api routes
     Object.keys(apiRoutes).forEach((key, index) => {
       apiRoutes[key].forEach((route) => {
-        const {methods ,path ,controller} = route
-        router[methods.toLowerCase()](`/${key}${path}`, middleware(controller,db))
+        const {methods ,path ,controller, permissions} = route
+        router[methods.toLowerCase()](`/${key}${path}`, middleware(controller,permissions,db))
       })
     })
     app.use('/api', router)
