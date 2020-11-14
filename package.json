@@ -2,12 +2,12 @@
   "name": "bolerplatenextpress",
   "version": "1.0.0",
   "description": "Boilerplate Nextjs + Express project",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "local": "node server.js",
-    "dev": "node server.js",
+    "local": "node app.js",
+    "dev": "node app.js",
     "build": "next build",
-    "start": "SET NODE_ENV=production node server.js"
+    "start": "SET NODE_ENV=production node app.js"
   },
   "author": "Bruno Reyes",
   "license": "MIT",

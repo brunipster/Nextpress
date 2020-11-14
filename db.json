@@ -6,5 +6,12 @@
       "date": "2020-10-23T17:20:20.616Z",
       "state": "done"
     }
+  ],
+  "user": [
+    {
+      "email": "brunorebu12@gmail.com",
+      "password": "1234",
+      "id": "SmZbrRrus"
+    }
   ]
 }
